@@ -7,6 +7,7 @@ import { memo } from "react";
 import { useEffect } from "react";
 import { FetchRecipe } from "@/hooks/fetchRecipes";
 import { useState } from "react";
+import client from "@/libs/contentFulClient";
 
 const Home = ({ recipes }) => {
   // const [recipes, setRecipes] = useState([]);
@@ -53,13 +54,24 @@ const Home = ({ recipes }) => {
 
 export default memo(Home);
 
-export const getServerSideProps = async () => {
-  const res = await fetch(`/api/recipes`);
-  //   console.log(res);
-  const data = await res.json();
+export const getStaticProps = async () => {
+  const data = await client.getEntries({ content_type: "recipes" });
+  const recipes = data.items;
+
   return {
     props: {
-      recipes: data.recipes,
+      recipes: recipes,
     },
   };
 };
+
+// export const getStaticProps = async () => {
+//   const res = await fetch(`http://localhost:3000/api/recipes`);
+//   //   console.log(res);
+//   const data = await res.json();
+//   return {
+//     props: {
+//       recipes: data.recipes,
+//     },
+//   };
+// };

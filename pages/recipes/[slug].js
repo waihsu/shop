@@ -21,6 +21,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import client from "@/libs/contentFulClient";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -135,10 +136,10 @@ const RecipesDetails = ({ recipe }) => {
 export default React.memo(RecipesDetails);
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`/api/recipes`);
-  const data = await res.json();
-  // console.log(data);
-  const paths = data.recipes.map((item) => {
+  const res = await client.getEntries({ content_type: "recipes" });
+  const recipes = res.items;
+
+  const paths = recipes.map((item) => {
     return {
       params: { slug: item.fields.slug },
     };
@@ -151,14 +152,42 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  // console.log(params.slug);
-  const res = await fetch(`/api/recipes/${params.slug}`);
+  const { items } = await client.getEntries({
+    content_type: "recipes",
+    "fields.slug": params.slug,
+  });
+  const recipe = items[0];
 
-  // console.log(res);
-  const data = await res.json();
-  // console.log(data.recipe.fields);
-  const recipe = data.recipe;
   return {
     props: { recipe: recipe },
   };
 };
+
+// export const getStaticPaths = async () => {
+//   const res = await fetch(`http://localhost:3000/api/recipes`);
+//   const data = await res.json();
+//   // console.log(data);
+//   const paths = data.recipes.map((item) => {
+//     return {
+//       params: { slug: item.fields.slug },
+//     };
+//   });
+
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+
+// export const getStaticProps = async ({ params }) => {
+//   // console.log(params.slug);
+//   const res = await fetch(`http://localhost:3000/api/recipes/${params.slug}`);
+
+//   // console.log(res);
+//   const data = await res.json();
+//   // console.log(data.recipe.fields);
+//   const recipe = data.recipe;
+//   return {
+//     props: { recipe: recipe },
+//   };
+// };
