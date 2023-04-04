@@ -147,7 +147,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -156,6 +156,14 @@ export const getStaticProps = async ({ params }) => {
     content_type: "recipes",
     "fields.slug": params.slug,
   });
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
   const recipe = items[0];
 
   return {

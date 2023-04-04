@@ -22,6 +22,7 @@ const Home = ({ recipes }) => {
   // }, []);
 
   // console.log(recipes);
+
   const recipesLabel = recipes.map((recipe) => ({
     label: recipe.fields.title,
   }));
