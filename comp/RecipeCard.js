@@ -41,4 +41,4 @@ const RecipeCard = ({ recipe }) => {
   );
 };
 
-export default React.memo(RecipeCard);
+export default RecipeCard;

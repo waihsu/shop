@@ -52,7 +52,7 @@ const Home = ({ recipes }) => {
   );
 };
 
-export default memo(Home);
+export default Home;
 
 export const getStaticProps = async () => {
   const data = await client.getEntries({ content_type: "recipes" });

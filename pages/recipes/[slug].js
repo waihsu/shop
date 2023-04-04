@@ -22,7 +22,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import client from "@/libs/contentFulClient";
-import { memo } from "react";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -134,7 +133,7 @@ const RecipesDetails = ({ recipe }) => {
   );
 };
 
-export default memo(RecipesDetails);
+export default RecipesDetails;
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({ content_type: "recipes" });
