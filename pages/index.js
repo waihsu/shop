@@ -3,11 +3,8 @@ import * as React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { Box } from "@mui/system";
-import { memo } from "react";
-import { useEffect } from "react";
-import { FetchRecipe } from "@/hooks/fetchRecipes";
-import { useState } from "react";
 import client from "@/libs/contentFulClient";
+import { Typography } from "@mui/material";
 
 const Home = ({ recipes }) => {
   // const [recipes, setRecipes] = useState([]);

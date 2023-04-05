@@ -95,6 +95,12 @@ const RecipesDetails = ({ recipe }) => {
               {title}
             </Typography>
           </Box>
+          <Box fontWeight="bold" sx={{ fontSize: 22 }}>
+            Cookietimes:
+            <Typography fontWeight="semibold" sx={{ fontSize: 18 }}>
+              {cookieTime} min
+            </Typography>
+          </Box>
           <Typography
             sx={{ mt: 1, fontSize: 16, fontWeight: "bold" }}
             paragraph>
