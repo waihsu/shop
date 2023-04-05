@@ -14,13 +14,10 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-
+import AspectRatio from "@mui/joy/AspectRatio";
 import { Box, Button } from "@mui/material";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import { useState } from "react";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 import client from "@/libs/contentFulClient";
 
 const ExpandMore = styled((props) => {
@@ -35,19 +32,6 @@ const ExpandMore = styled((props) => {
 }));
 
 const RecipesDetails = ({ recipe }) => {
-  // const router = useRouter();
-  // const [recipe, setRecipe] = useState({});
-  // useEffect(() => {
-  //   const getRecipes = async () => {
-  //     const slug = router.query;
-  //     const res = await fetch(`/api/recipes/` + slug);
-  //     const data = await res.json();
-  //     console.log(data.recipe);
-  //     const recipe = data.recipe;
-  //     setRecipe(recipe);
-  //   };
-  //   getRecipes();
-  // }, []);
   // console.log(recipe);
   const {
     title,
