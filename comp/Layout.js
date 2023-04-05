@@ -1,13 +1,13 @@
 import Navbar from "./Navbar";
-import { Box, Typography } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
+// import { Box, Typography } from "@mui/material";
+// import CircularProgress from "@mui/material/CircularProgress";
 
 const Layout = ({ children }) => {
   return (
     <div>
       <Navbar />
       {children}
-      <Box
+      {/* <Box
         sx={{
           disply: "flex",
           width: "100%",
@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
           }}>
           Comming Soon <CircularProgress />
         </Typography>
-      </Box>
+      </Box> */}
     </div>
   );
 };
