@@ -45,7 +45,7 @@ const RecipesDetails = ({ shirt }) => {
         <AspectRatio ratio="6/8">
           <figure>
             <img
-              src={tumbnail.fields.file.url}
+              src={"https:" + tumbnail.fields.file.url}
               loading="lazy"
               alt="Yosemite by Casey Horner"
             />
@@ -93,7 +93,7 @@ const RecipesDetails = ({ shirt }) => {
           <AspectRatio ratio="6/8">
             <figure>
               <img
-                src={featureImage.fields.file.url}
+                src={"https:" + featureImage.fields.file.url}
                 loading="lazy"
                 alt="Yosemite by Casey Horner"
               />

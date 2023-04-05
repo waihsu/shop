@@ -85,7 +85,7 @@ const RecipesDetails = ({ recipe }) => {
         <CardMedia
           component="img"
           height="194"
-          image={tumbnail.fields.file.url}
+          image={"https:" + tumbnail.fields.file.url}
           alt="Paella dish"
         />
         <CardContent>
@@ -136,7 +136,7 @@ const RecipesDetails = ({ recipe }) => {
           <AspectRatio ratio="6/8">
             <figure>
               <img
-                src={featureImage.fields.file.url}
+                src={"https:" + featureImage.fields.file.url}
                 loading="lazy"
                 alt="Yosemite by Casey Horner"
               />
